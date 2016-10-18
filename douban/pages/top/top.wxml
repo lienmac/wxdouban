@@ -6,7 +6,7 @@
 </view>
 </block>
 <block wx:else> 
-<scroll-view scroll-y="true" style="height: 100%;" id="list" class="movie_list" bindscroll="scroll" bindscrolltolower="bindScrollBottom">
+<scroll-view scroll-y="true" style="height: 100vh;" id="list" class="movie_list" bindscroll="scroll" bindscrolltolower="bindScrollBottom">
     <block wx:for="{{itemInfo}}">
         <view data-id="{{item.id}}" bindtap="bindTapItem">
         <!--<navigator url="../item/item?id={{item.id}}">-->
