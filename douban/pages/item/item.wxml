@@ -1,0 +1,34 @@
+<view id="movieItem" scroll-y="true" class="movie_item">
+    <view class="movie_item_img"><image src="{{itemInfo.images.large}}"></image></view>
+    <view class="movie_item_info">
+        <view class="movie_item_title">
+            <text class="movie_item_h1">{{itemInfo.title}}</text>
+            <text>{{itemInfo.year}} / <i wx:for="{{itemInfo.countries}}" wx:for-item="itemC">{{itemC}} / </i><i wx:for="{{itemInfo.genres}}" wx:for-item="itemC">{{itemC}} / </i></text>
+            <text>别名：<i wx:for="{{itemInfo.aka}}" wx:for-item="itemC">{{itemC}} / </i></text>
+        </view>
+        <view class="movie_item_rate">
+            <text class="movie_item_h2">{{itemInfo.rating.average}}</text>
+            <text>{{itemInfo.ratings_count}}人</text>
+        </view>
+    </view>
+    <view class="movie_item_btn">
+        <button size="mini" type="primary" plain="true" >想看（{{itemInfo.wish_count}}）</button>
+        <button size="mini" type="primary" plain="true" >看过（{{itemInfo.collect_count}}）</button>
+    </view>
+    <view class="movie_item_summary">
+        <label>剧情简介</label>
+        <text>{{itemInfo.summary}}</text>
+    </view>
+    <scroll-view scroll-x="true" class="movie_item_people">
+        <label>影人</label>
+        <view class="movie_item_people_list">
+            <view wx:for="{{itemInfo.directors}}" wx:for-item="itemC"><image src="{{itemC.avatars.large}}"></image><text>{{itemC.name}}</text></view>
+            <view wx:for="{{itemInfo.casts}}" wx:for-item="itemC"><image src="{{itemC.avatars.medium}}"></image><text>{{itemC.name}}</text></view>
+        </view>
+    </scroll-view>
+<view>
+<view class="body-view">
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+</view>

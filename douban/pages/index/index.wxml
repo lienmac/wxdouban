@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="movie_tab">
+    <ul>
+      <li wx:for="{{tabOption}}" class="movie_tab_item {{currentTab==item.current ? 'on' : ''}}" data-current="{{item.current}}" data-url="{{item.url}}" bindtap="bindTapIndex">{{item.word}}</li>
+    </ul>
+  </view>
+  <swiper class="indexSwiper" indicator-dots="{{indexSwiper.indicatorDots}}"
+  autoplay="{{indexSwiper.autoplay}}" interval="{{indexSwiper.interval}}" duration="{{indexSwiper.duration}}">
+    <block wx:for="{{indexSwiper.imgUrl}}">
+      <swiper-item>
+        <image id="swiper-{{index}}" bindtap="bindTapImgRedirect" src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view id="list" class="movie_list">
+    <block wx:for="{{listData}}">
+      <view data-id="{{item.id}}" bindtap="bindTapItem">
+        <!--<navigator url="../item/item?id={{item.id}}">-->
+          <image src="{{item.images.small}}"></image>
+          <dl>
+            <dd><text>片名：{{item.title}}</text></dd>
+            <dd><text>评分：{{item.rating.average}}</text></dd>
+            <dd><text>主演：<i wx:for="{{item.casts}}" wx:for-item="itemC">{{itemC.name}}/</i></text></dd>
+          </dl>
+        <!--</navigator>-->
+      </view>
+    </block>
+  </view>
+</view>
+<view class="body-view">
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+</view>
+

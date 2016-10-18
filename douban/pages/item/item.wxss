@@ -1,0 +1,96 @@
+.movie_item{
+    background-color: #f9f9f9;
+    font-size: .9em;
+}
+.movie_item_img{
+    width: 100%;
+    background: rgb(0, 0, 0);
+    padding: 40rpx 0;
+    text-align: center;
+}
+.movie_item_img image{
+    width:300rpx;
+    height:419rpx;
+}
+.movie_item_info,.movie_item_btn,.movie_item_summary,.movie_item_people{
+    width: 94%;
+    margin: 0 3%;
+    margin-top: 30rpx;
+    position: relative;
+}
+.movie_item_title{
+    width: 70%;
+    font-size: .6em;
+    color: #999;
+    min-height: 150rpx;
+}
+.movie_item_h1{
+    font-size: 4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15rpx;
+}
+.movie_item_h2{
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+.movie_item_rate{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 150rpx;
+    height: 150rpx;
+    background-color: #fff;
+    box-shadow: 10rpx 10rpx 10rpx rgb(0, 0, 0);
+    text-align: center;
+    color: #999;
+}
+.movie_item_rate text{
+    margin-top: 20rpx;
+}
+text{
+    display: block;
+}
+.movie_item_btn wx-button[type="primary"]{
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid #396;
+    background-color: transparent;
+    color: #396;
+}
+.movie_item_btn button:first-child{
+    width: 45%;
+    margin-right: 3%;
+}
+.movie_item_btn button:last-child{
+    width: 52%;
+}
+label{
+    display: block;
+    margin-bottom: 15rpx;
+    color: #999;
+    font-size: .6em;
+}
+.movie_item_summary text{
+    font-size: 1.4em;
+    line-height: 1.5;
+}
+.movie_item_people .movie_item_people_list{
+    min-height: 250rpx;
+    overflow-x: auto;
+    display: flex;
+}
+.movie_item_people .movie_item_people_list view{
+    margin-right: 15rpx;
+    width:140rpx;
+    float: left;
+}
+.movie_item_people .movie_item_people_list image{
+	width: 140rpx;
+	height: 200rpx;
+}
+.movie_item_people .movie_item_people_list text{
+    display: block;
+    text-align: center;
+}

@@ -1,0 +1,33 @@
+<block wx:if="{{defaultLoad}}">
+<view class="body-view">
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+</view>
+</block>
+<block wx:else> 
+<scroll-view scroll-y="true" style="height: 100%;" id="list" class="movie_list" bindscroll="scroll" bindscrolltolower="bindScrollBottom">
+    <block wx:for="{{itemInfo}}">
+        <view data-id="{{item.id}}" bindtap="bindTapItem">
+        <!--<navigator url="../item/item?id={{item.id}}">-->
+            <image src="{{item.images.small}}"></image>
+            <dl>
+            <dd><text>片名：{{item.title}}</text></dd>
+            <dd><text>评分：{{item.rating.average}}</text></dd>
+            <dd><text>主演：<i wx:for="{{item.casts}}" wx:for-item="itemC">{{itemC.name}}/</i></text></dd>
+            </dl>
+        <!--</navigator>-->
+        </view>
+    </block>
+    <view class="load-more-wrap">
+      <block wx:if="{{hasMore}}">
+        <button type="default" size="mini" loading="{{loading}}" bindtap="bindScrollBottom" class="other-button">{{loadWord}} </button>
+      </block>
+      <block wx:else>
+        <view class="load-content">
+          <text>没有更多内容了</text>
+        </view>
+      </block>
+    </view>
+</scroll-view>
+</block>
