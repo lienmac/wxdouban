@@ -1,7 +1,0 @@
-<application>
-  <component name="ExportableFileTemplateSettings">
-    <default_templates>
-      <template name="Vue File.vue" reformat="true" live-template-enabled="true" enabled="true" />
-    </default_templates>
-  </component>
-</application>
