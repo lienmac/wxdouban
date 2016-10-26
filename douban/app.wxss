@@ -43,3 +43,21 @@ page{font-family:"Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;-ms-text-si
   font-size: .8em;
   margin-bottom: 10rpx;
 }
+#searchBar{
+  padding: 20rpx;
+}
+#searchBar input{
+  display: inline-block;
+  border: 1px solid #eee;
+  vertical-align: middle;
+  width: 75%;
+  height: 30px;
+  border-radius: 10rpx;
+  margin-right: 5rpx;
+  box-sizing: border-box;
+}
+#searchBar button{
+  vertical-align: middle;
+  width: 23%;
+  height: 30px;
+}

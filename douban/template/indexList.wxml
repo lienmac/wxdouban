@@ -1,0 +1,27 @@
+<template name="in">
+    <view data-id="{{item.id}}" bindtap="bindTapItem">
+        <!--<navigator url="../item/item?id={{item.id}}">-->
+          <image src="{{item.images.small}}"></image>
+          <dl>
+            <dd><text>片名：{{item.title}}</text></dd>
+            <dd><text>评分：{{item.rating.average}}</text></dd>
+            <dd><text>主演：<i wx:for="{{item.casts}}" wx:for-item="itemC">{{itemC.name}}/</i></text></dd>
+          </dl>
+        <!--</navigator>-->
+      </view>
+</template>
+<template name="coming">
+    <view data-id="{{item.id}}" bindtap="bindTapItem">
+        <!--<navigator url="../item/item?id={{item.id}}">-->
+          <image src="{{item.images.small}}"></image>
+          <dl>
+            <dd><text>片名：{{item.title}}</text></dd>
+            <dd><text>{{item.collect_count}}人想看</text></dd>
+            <dd><text>主演：<i wx:for="{{item.casts}}" wx:for-item="itemC">{{itemC.name}}/</i></text></dd>
+          </dl>
+        <!--</navigator>-->
+      </view>
+</template>
+<block wx:for="{{listData}}">
+    <template is="{{sum==='API_URL_IN' ? 'in' : 'coming'}}" data="{{item}}"/>
+</block>

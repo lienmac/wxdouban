@@ -13,19 +13,9 @@
       </swiper-item>
     </block>
   </swiper>
+  <include src="../../template/searchbar.wxml"/>
   <view id="list" class="movie_list">
-    <block wx:for="{{listData}}">
-      <view data-id="{{item.id}}" bindtap="bindTapItem">
-        <!--<navigator url="../item/item?id={{item.id}}">-->
-          <image src="{{item.images.small}}"></image>
-          <dl>
-            <dd><text>片名：{{item.title}}</text></dd>
-            <dd><text>评分：{{item.rating.average}}</text></dd>
-            <dd><text>主演：<i wx:for="{{item.casts}}" wx:for-item="itemC">{{itemC.name}}/</i></text></dd>
-          </dl>
-        <!--</navigator>-->
-      </view>
-    </block>
+    <include src="../../template/indexList.wxml"/>
   </view>
 </view>
 <view class="body-view">

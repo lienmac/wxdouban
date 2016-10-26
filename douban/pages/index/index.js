@@ -4,6 +4,7 @@ var config = require( '../../config.js' )
 var app = getApp()
 Page( {
   data: {
+    sum: 'API_URL_IN',
     motto: 'Hello World',
     userInfo: {},
     tabOption: [
@@ -57,25 +58,9 @@ Page( {
     } else {
       var that = this;
       that.setData( {
-        hidden: false,
         currentTab: e.target.dataset.current
       });
-      wx.request( {
-        url: config.APIUrl()[ e.target.dataset.url ],
-        data: {
-          city: '厦门'
-        },
-        header: {
-          'Content-Type': 'application/json'
-        },
-        success: function( res ) {
-          that.setData( {
-            hidden: true,
-            listData: res.data.subjects
-          })
-        }
-      });
-
+      that.dataRequest( e.target.dataset.url );
     }
   },
   //列表点击跳转
@@ -86,12 +71,16 @@ Page( {
   },
   //默认输出数据
   defaultOutput: function() {
+    this.dataRequest( 'API_URL_IN' );
+  },
+  //请求数据
+  dataRequest: function( v ) {
     var that = this;
     that.setData( {
-        hidden: false
-      });
+      hidden: false
+    });
     wx.request( {
-      url: config.APIUrl()[ 'API_URL_IN' ],
+      url: config.APIUrl()[ v ],
       data: {
         city: '厦门'
       },
@@ -101,10 +90,21 @@ Page( {
       success: function( res ) {
         that.setData( {
           hidden: true,
-          listData: res.data.subjects
+          listData: res.data.subjects,
+          sum: v
         })
       }
     });
+  },
+  //搜索框操作
+  formsearch: function( e ) {
+    console.log( e.detail.value.searchInput );
+    if( e.detail.value.searchInput !== "" ) {
+      wx.navigateTo( {
+        url: '../search/search?q=' + e.detail.value.searchInput
+      })
+    }
+
   },
   onLoad: function() {
     this.defaultOutput();

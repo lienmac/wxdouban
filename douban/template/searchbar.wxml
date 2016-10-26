@@ -1,0 +1,6 @@
+<view id="searchBar">
+    <form bindsubmit="formsearch">
+        <input type="text" value="" name="searchInput" placeholder="影片/影人/类型" />
+        <button size="mini" formType="submit">搜索</button>
+    </form>
+</view>
